@@ -3,10 +3,6 @@
     template(slot-scope="{ namespace }")
       section(v-if="usage")#usage
         helpers-section-head(value="Generic.Pages.usage")
-        helpers-section-text(
-          v-if="$te(`${namespace}.examples.usage.desc`)"
-          :value="`${namespace}.examples.usage.desc`"
-        )
         helpers-example(
           :new-in="usage.new"
           :file="`${folder}/${usage.file}`"
@@ -52,7 +48,7 @@
           v-tabs-items(touchless v-model="tab").white
             v-tab-item(
               v-for="(tabItem, i) in computedTabs"
-              :id="tabItem"
+              :value="tabItem"
               :key="i"
             )
               v-card(flat v-if="hasTab(tabItem)")
